@@ -28,18 +28,18 @@ describe('the JavaScript language', () => {
 
     it('surprises me, NaN is not comparable with NaN', () => {
       expect(5 / 'a').toEqual(5 / 'a');
-      //expect(typeof(NaN)).toEqual();
+      expect(typeof NaN).toEqual(typeof NaN);
       expect(isNaN(5 / 'a')).toBeTruthy();
     });
 
     it('considers an empty string to be falsy', () => {
-      //expect("" == false).toBe......();// Truthy or Falsy
-      //expect("" === false).toBe.....();// Truthy or Falsy
+      expect('' == false).toBe(true); // Truthy or Falsy
+      expect('' === false).toBe(false); // Truthy or Falsy
     });
 
     it('considers zero to be falsy', () => {
-      //expect(0 == false).toBe......();// Truthy or Falsy
-      //expect(0 === false).toBe.....();// Truthy or Falsy
+      expect(0 == false).toBe(true); // Truthy or Falsy
+      expect(0 === false).toBe(false); // Truthy or Falsy
     });
 
     it('considers nulls to be falsy', () => {
@@ -52,9 +52,9 @@ describe('the JavaScript language', () => {
         result = false;
       }
 
-      //expect(result == false).toBe......();// Truthy or Falsy
-      //expect(null === false).toBe.....();// Truthy or Falsy
-      //expect(null == false).toBe....();// Truthy or Falsy
+      expect(result == false).toBe(true); // Truthy or Falsy
+      expect(null === false).toBe(false); // Truthy or Falsy
+      expect(null == false).toBe(false); // Truthy or Falsy
     });
 
     it('knows the type of a function', () => {
@@ -71,7 +71,11 @@ describe('the JavaScript language', () => {
       arr.push(5);
       arr[9] = 6;
 
-      const matrix = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 7, 8]];
+      const matrix = [
+        ['a', 'b', 'c'],
+        ['d', 'e', 'f'],
+        ['g', 7, 8],
+      ];
 
       /*
       expect(arr[1]).toEqual();
@@ -88,7 +92,7 @@ describe('the JavaScript language', () => {
         2,
         function(arg) {
           return 3 + arg;
-        }
+        },
       ];
 
       //expect(arr[2](1)).toEqual();
@@ -98,7 +102,7 @@ describe('the JavaScript language', () => {
       const a = [1, 2, 3];
       const b = [4, 5, 6];
 
-      //expect(a + b).toEqual();
+      expect(a + b).toEqual();
     });
 
     it('joins arrays and strings', () => {
@@ -122,7 +126,7 @@ describe('the JavaScript language', () => {
       const a = [1, 2, 3];
       const b = [1, 2, 3];
 
-      //expect(a == b).toBe.....();  // Truthy or Falsy
+      //expect(a == b).toBe();  // Truthy or Falsy
       //expect(a === b).toBe.....(); // Truthy or Falsy
     });
 
@@ -395,7 +399,7 @@ describe('the JavaScript language', () => {
         name: 'bob',
         theName: function() {
           return this.name;
-        }
+        },
       };
 
       //expect(obj.theName()).toBe();
@@ -404,7 +408,7 @@ describe('the JavaScript language', () => {
     it('can create properties dynamically', () => {
       const obj = {
         name: 'bob',
-        surname: 'sponge'
+        surname: 'sponge',
       };
       obj.address = 'palm tree';
 
@@ -431,7 +435,7 @@ describe('the JavaScript language', () => {
           },
           score: function() {
             return points;
-          }
+          },
         };
       }
 
